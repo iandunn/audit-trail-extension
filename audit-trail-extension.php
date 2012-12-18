@@ -174,7 +174,7 @@ if( !class_exists( 'AuditTrailExtension' ) )
 			if( substr( $option, 0, 1 ) == '_' || strpos( $option, 'transient' ) !== false || in_array( $option, $ignoredOptions ) )
 				return;
 			
-			if( !class_exists( 'AT_Audit' ) || !method_exists( AT_Audit, 'create' ) )
+			if( !class_exists( 'AT_Audit' ) || !method_exists( 'AT_Audit', 'create' ) )
 				return;
 
 			AT_Audit::create(
@@ -198,7 +198,7 @@ if( !class_exists( 'AuditTrailExtension' ) )
 		{
 			// Note: doesn't catch silent plugin activation/deactivation, or failed attempts to activate because WP doesn't supply adequate hooks for those
 			
-			if( !class_exists( 'AT_Audit' ) || !method_exists( AT_Audit, 'create' ) )
+			if( !class_exists( 'AT_Audit' ) || !method_exists( 'AT_Audit', 'create' ) )
 				return;
 			
 			$pluginData = get_plugin_data( dirname( __DIR__ ) .'/'. $plugin );
