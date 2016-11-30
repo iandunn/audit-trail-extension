@@ -103,14 +103,9 @@ if( !class_exists( 'AuditTrailExtension' ) )
 			switch( $item->operation )
 			{
 				case 'update_option':
-					$option = unserialize( $item->data );
-					$item->message = $option[ 'Option' ];
-				break;
-				
 				case 'activate_plugin':
 				case 'deactivate_plugin':
-					$details = unserialize( $item->data );
-					$item->message = $details[ 'Plugin' ];
+					$item->message = $item->data;
 				break;
 			}
 			
@@ -130,13 +125,9 @@ if( !class_exists( 'AuditTrailExtension' ) )
 			switch( $item->operation )
 			{
 				case 'update_option':
-					$details = unserialize( $item->data );
-					$view = 'details-array.php'; 
-				break;
-				
 				case 'activate_plugin':
 				case 'deactivate_plugin':
-					$details = unserialize( $item->data );
+					$details = $item->data;
 					$view = 'details-array.php';
 				break;
 			}
